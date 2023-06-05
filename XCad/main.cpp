@@ -2,6 +2,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "IconOfApplication.h"
+
 // Window dimensions
 const GLint WIDTH = 800, HEIGHT = 600;
 
@@ -27,6 +30,9 @@ int main()
         return 1;
     }
 
+    // TODO : Add icon to application
+    setIconOfApplication(mainWindow);
+
     int bufferWidth, bufferHeight;
     glfwGetFramebufferSize(mainWindow, &bufferWidth, &bufferHeight);
 
@@ -48,7 +54,7 @@ int main()
     {
         glfwPollEvents();
 
-        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(255.0f, 255.0f, 255.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwSwapBuffers(mainWindow);
